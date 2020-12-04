@@ -1,6 +1,7 @@
 package Course;
 
-public class Course {
+public class Course{
+
     private String name;
     private String Teacher_name;
     private String room;

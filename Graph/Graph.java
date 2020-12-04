@@ -104,6 +104,7 @@ public abstract class Graph {
             }
         }
     }
+
      abstract void Visit(int vertex);
      abstract Edge GetFirstEdge(int vertex);
      abstract Edge GetNextEdge(Edge pre_edge);

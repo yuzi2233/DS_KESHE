@@ -5,45 +5,82 @@ import java.lang.System;
 import java.util.*;
 import java.util.regex.*;
 
-class Read_text {
+public class Read_text {
     private ArrayList<String>[] Station_list; //站台信息
-    private Set<String> Stations = new TreeSet<>();
+    private Set<String> Stations = new TreeSet<>();  //不重复的站台信息
     private LinkedHashMap<String, Integer>[] Curcuit_list;//站台和对应的历程信息
     private File file;
-    private LinkedHashMap<String,int[]> special_station;//换乘站信息
+    public LinkedHashMap<String,int[]> special_station,special_station_g;//换乘站信息,对应表1，2
     private int Line_Num;//线路数量
     private int specila_num;
     private int station_num;
-    private HashMap<String, Integer> ES;
-    public Read_text(String path,String path1) throws IOException {
+    public String[] only_specila;//储存全部的换成站
+    public HashMap<Integer, Integer> ES,OS;
+    public Read_text(String path,String path1,String path2) throws IOException {
 
         First_stap();
         Get_Lines_Num(Dofile(path));
         Get_Lines_Infortion(Dofile(path));
         Get_Specila_Num(Dofile(path1));
-        Get_special_s(Dofile(path1));
+        special_station=  Get_special_s(Dofile(path1));
         station_num= Get_total_Num();
+        special_station_g=Get_special_s(Dofile(path2));
         Get_station_num();
-
+        only_specila=Return_only_spe(Dofile(path2));
     }
+
+    private String[] Return_only_spe(BufferedReader bw) throws IOException {
+        String []word=new String[specila_num];
+        String line;
+        int i=-1;
+        while ((line = bw.readLine()) != null) {
+            String pattern = "[\\u4e00-\\u9fa5]+";
+            Pattern r = Pattern.compile(pattern);
+            Matcher m = r.matcher(line);
+
+            while (m.find() ) {
+                if(i!=-1)
+                    word[i]=m.group(0);
+                }
+            i++;
+            }
+        return  word;
+    }
+
     public void First_stap()
     {
-        ES=new HashMap<String, Integer>();
-        ES.put("1号线",0);
-        ES.put("2号线",1);
-        ES.put("4号线",2);
-        ES.put("5号线",3);
-        ES.put("6号线",4);
-        ES.put("7号线",5);
-        ES.put("8号线",6);
-        ES.put("9号线",7);
-        ES.put("10号线",8);
-        ES.put("13号线",9);
-        ES.put("14号线东",10);
-        ES.put("15号线",11);
-        ES.put("16号线",12);
-        ES.put("17号线",13);
-        ES.put("18号线",14);
+        ES=new HashMap<Integer, Integer>();
+        ES.put(1,0);
+        ES.put(2,1);
+        ES.put(4,2);
+        ES.put(5,3);
+        ES.put(6,4);
+        ES.put(7,5);
+        ES.put(8,6);
+        ES.put(9,7);
+        ES.put(10,8);
+        ES.put(13,9);
+        ES.put(14,10);
+        ES.put(15,11);
+        ES.put(16,12);
+        ES.put(17,13);
+        ES.put(18,14);
+        OS=new HashMap<Integer, Integer>();
+        OS.put(0,1);
+        OS.put(1,2);
+        OS.put(2,4);
+        OS.put(3,5);
+        OS.put(4,6);
+        OS.put(5,7);
+        OS.put(6,8);
+        OS.put(7,9);
+        OS.put(8,10);
+        OS.put(9,13);
+        OS.put(10,14);
+        OS.put(11,15);
+        OS.put(12,16);
+        OS.put(13,17);
+        OS.put(14,18);
     }
     public void Get_station_num()
     {
@@ -140,12 +177,12 @@ class Read_text {
             System.out.println(aaa);
         }*/ //测试函数
     }
-    public void Get_special_s(BufferedReader bw)throws IOException {
-        special_station = new LinkedHashMap<String, int[]>(); //假设最大位100
+    public LinkedHashMap<String,int[]> Get_special_s(BufferedReader bw)throws IOException {
+        LinkedHashMap<String,int[]> sta = new LinkedHashMap<String, int[]>(); //假设最大位100
         /*for (int i = 0; i < 100; i++) {
             special_station[i] = new LinkedHashMap<String, int[]>();
         }*/
-        int []Catch=new int[5];
+        int []Catch=new int[6];
         String line;
         String word = null;
         int i = -1;
@@ -159,16 +196,17 @@ class Read_text {
             while (m.find() ) {
                 word=m.group(0);
                 int x=0;
-                Catch=new int[5];
+                Catch=new int[6];
                 while( m2.find()) {
                     Catch[x]=Integer.parseInt(m2.group(0));
                     x++;
                 }
             }
             if(i!=-1)
-            special_station.put(word,Catch);
+            sta.put(word,Catch);
             i++;
         }
+        return sta;
     }
     public int Return_Line_Num()
     {
@@ -185,6 +223,10 @@ class Read_text {
     public LinkedHashMap<String, int[]> Return_special_line()
     {
         return this.special_station;
+    }
+    public int Return_s_num()
+    {
+        return this.specila_num;
     }
     public void Add_Specila_Station(String station,int a[])
     {
@@ -218,6 +260,6 @@ class Read_text {
                     num--;
 
         }
-        return num;
+        return num+1;
     }
 }
