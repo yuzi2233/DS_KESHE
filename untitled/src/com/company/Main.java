@@ -2,12 +2,14 @@ package com.company;
 import java.io.*;
 import java.lang.System;
 import java.util.ArrayList;
-import java.util.Scanner;
-import Graph.*;
+
 public class Main {
-    String path = "E:\\untitled3\\线路图1\\test.txt";
-    String path1 = "E:\\untitled3\\线路图1\\test1.txt";
-    String path2 = "E:\\untitled3\\线路图1\\test2.txt";
+
+    //String path = "E:\\untitled3\\线路图1\\test.txt";
+
+    String path = "src\\resources/test.txt";
+    String path1 = "src\\resources/test1.txt";
+    String path2 = "src\\resources/test2.txt";
     public Read_text rt;
     public Subway subway;
         public Main(String instation,int inline) throws IOException {
@@ -30,6 +32,7 @@ public class Main {
             test_matrix = subway.graph.Dijkstra(aa,subway,line,transfer,last_tranline,last_tran_sta);
             for(int i=0;i<this.subway.text.only_specila.length;i++)
             {
+                System.out.println("----------------------");
                 System.out.println(i);
                 System.out.println(transfer[i]);
                 System.out.println(last_tranline[i]);

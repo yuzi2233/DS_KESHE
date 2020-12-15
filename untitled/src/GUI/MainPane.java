@@ -140,7 +140,7 @@ public class MainPane extends Application{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Gui gui1=new Gui(ma);
+                Flow_Pane gui1=new Flow_Pane(ma);
                 try {
                     primaryStage.close();
                     gui1.start(new Stage());

@@ -161,22 +161,22 @@
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="555" y="171" key="FileChooserDialogImpl/0.0.1549.831@0.0.1549.831" timestamp="1606554872135" />
-    <state width="1506" height="290" key="GridCell.Tab.0.bottom" timestamp="1607671376603">
+    <state width="1506" height="290" key="GridCell.Tab.0.bottom" timestamp="1608019663014">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="290" key="GridCell.Tab.0.bottom/0.0.1549.831@0.0.1549.831" timestamp="1607671376603" />
-    <state width="1506" height="290" key="GridCell.Tab.0.center" timestamp="1607671376602">
+    <state width="1506" height="290" key="GridCell.Tab.0.bottom/0.0.1549.831@0.0.1549.831" timestamp="1608019663014" />
+    <state width="1506" height="290" key="GridCell.Tab.0.center" timestamp="1608019663014">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="290" key="GridCell.Tab.0.center/0.0.1549.831@0.0.1549.831" timestamp="1607671376602" />
-    <state width="1506" height="290" key="GridCell.Tab.0.left" timestamp="1607671376601">
+    <state width="1506" height="290" key="GridCell.Tab.0.center/0.0.1549.831@0.0.1549.831" timestamp="1608019663014" />
+    <state width="1506" height="290" key="GridCell.Tab.0.left" timestamp="1608019663014">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="290" key="GridCell.Tab.0.left/0.0.1549.831@0.0.1549.831" timestamp="1607671376601" />
-    <state width="1506" height="290" key="GridCell.Tab.0.right" timestamp="1607671376603">
+    <state width="1506" height="290" key="GridCell.Tab.0.left/0.0.1549.831@0.0.1549.831" timestamp="1608019663014" />
+    <state width="1506" height="290" key="GridCell.Tab.0.right" timestamp="1608019663014">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state width="1506" height="290" key="GridCell.Tab.0.right/0.0.1549.831@0.0.1549.831" timestamp="1607671376603" />
+    <state width="1506" height="290" key="GridCell.Tab.0.right/0.0.1549.831@0.0.1549.831" timestamp="1608019663014" />
     <state width="1506" height="255" key="GridCell.Tab.1.bottom" timestamp="1607235463996">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
@@ -205,10 +205,10 @@
       <screen x="0" y="0" width="1549" height="831" />
     </state>
     <state x="65" y="191" width="982" height="640" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1549.831@0.0.1549.831" timestamp="1606304189791" />
-    <state x="473" y="13" width="602" height="804" key="find.popup" timestamp="1606383075043">
+    <state x="473" y="13" width="602" height="804" key="find.popup" timestamp="1607853865561">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
-    <state x="473" y="13" width="602" height="804" key="find.popup/0.0.1549.831@0.0.1549.831" timestamp="1606383075043" />
+    <state x="473" y="13" width="602" height="804" key="find.popup/0.0.1549.831@0.0.1549.831" timestamp="1607853865561" />
     <state x="219" y="52" key="new project wizard" timestamp="1607070890756">
       <screen x="0" y="0" width="1549" height="831" />
     </state>
@@ -243,7 +243,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/Main.java</url>
-          <line>36</line>
+          <line>39</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -252,7 +252,7 @@
           <option name="timeStamp" value="68" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/GUI/test_state.java</url>
+          <url>file://$PROJECT_DIR$/src/GUI/Rectangle_Pane.java</url>
           <line>60</line>
           <option name="timeStamp" value="69" />
         </line-breakpoint>

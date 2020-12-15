@@ -6,8 +6,7 @@ import java.util.*;
 
 public class Subway {
     MatrixGraph graph; //数据结构
-    public Read_text text;// 数据存储
-    String[] Stations; //站的信息
+    public Read_text text;// 数据存
     public int[] price;
     public ArrayList<Integer>[] ev_price;
     public HashMap<String,String> go_every_station;
@@ -15,13 +14,13 @@ public class Subway {
     public Subway(Read_text text)
     {
         this.text=text;
-        //Stations=  Arrays.copyOf(text.Return_Stations().toArray(), text.Return_Stations().toArray().length, String[].class); //将Object对象转化为String
         graph=new MatrixGraph(text.Return_s_num(),text.special_station_g.keySet().toArray(new String[0]));
-
         Set_Graph();
     }
 
     public int get_close(String station,int a) {  //获取输入站最近的换乘站   a为哪条线
+
+        int flag=0;
         for(int i=0;i<this.graph.vertex_num;i++)
         {
             if(station.equals(text.only_specila[i]))
@@ -47,6 +46,7 @@ public class Subway {
             {
                 if(Is_special(b+1,Line_station_array)!=-1)
                 {
+
                     return Is_special(b+1,Line_station_array);
                 }
             }
@@ -54,6 +54,7 @@ public class Subway {
             {
                 if(Is_special(c-1,Line_station_array)!=-1)
                 {
+
                     return Is_special(c-1,Line_station_array);
                 }
             }
@@ -61,6 +62,7 @@ public class Subway {
             c--;
         }
     }
+
     public int Is_special(int i,String[] st)
     {
         for(int a=0;a<this.graph.vertex_num;a++)
@@ -150,21 +152,7 @@ public class Subway {
     private void Creat_Graph() {
 
     }
-    private void TEST() {
-        while (true)
-        {
-            System.out.println("请输入");
-            Scanner input=new Scanner(System.in);
-            int a[]=Find_Station_Line(input.nextLine());
-            if(a!=null)
-            for(int i=0;i<a.length;i++)
-            {
-                if(a[i]==0)
-                    break;
-                System.out.println(a[i]);
-            }
-        }
-    }
+
     public void Set_Graph()
     {
         int i=0;
@@ -173,7 +161,7 @@ public class Subway {
             int j=0;
             while(x[j]!=0) {
                     int n = Get_weight(text.only_specila[i], text.only_specila[x[j] - 1]);
-                    graph.SetEdge(i, x[j]-1, n);  //需要改
+                    graph.SetEdge(i, x[j]-1, n);
                 j++;
                 }
             i++;
@@ -203,37 +191,7 @@ public class Subway {
         }
         return null;
     }
-    public String Return_During(int x,int y)
-    {
-        String string ="";
-        ArrayList lines_station;
-        int a[]=Find_Station_Line(this.text.only_specila[x]);
-        int b[]=Find_Station_Line(this.text.only_specila[y]) ;
-        int Toghter_line=R_LINE(a,b);
-        if(Toghter_line==-1)
-            return string;
-        lines_station=this.text.Return_Line_List()[Toghter_line];
-        for(int i=0;i<lines_station.size();i++)
-        {
-            if(((String)lines_station.get(i)).equals(this.text.only_specila[x])||lines_station.get(i).equals(this.text.only_specila[y]))
-            {
-                int flag = i + 1;
-                while(true) {
 
-                    string = string + "->" + (String) lines_station.get(flag);
-                    flag++;
-                    if(((String)lines_station.get(flag)).equals(this.text.only_specila[x])||lines_station.get(flag).equals(this.text.only_specila[y]))
-                    {
-                        break;
-                    }
-                }
-                break;
-            }
-
-        }
-
-        return string;
-    }
     void Price(String station,int s,int distance,String []transfer,int []last_tranline,int []last_tran_sta) //s为出发站最近的站
     {
         price=new int[500];
@@ -246,7 +204,6 @@ public class Subway {
             ev_price[i]=new ArrayList<>();
             for(Object a:this.text.Return_Line_List()[i])
             {
-                //int dis2=this.Get_weight((String)a,station);
                 int dis_o=this.get_close((String)a,text.OS.get(i)); //到达点最近的换成站
                 int dis= this.Get_weight((String)a,this.text.only_specila[dis_o]); //到达点换成站-到达点
                 int num;
@@ -288,7 +245,6 @@ public class Subway {
             }
 
         }
-
     }
 
     private int GetOneLinePrice(String a, String station, int i) {

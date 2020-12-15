@@ -179,14 +179,10 @@ public class MatrixGraph extends Graph{
             System.out.println(test_matrix[s][i]);
             System.out.println(s+ "到" + i + "的最短路径为：" + path[i]);
             String[] sourceStrArray = path[i].split("->");
-
-
             int []pass=new int[sourceStrArray.length];
             for(int j=0;j< sourceStrArray.length;j++)
             {
-
                 pass[j]=Integer.parseInt(sourceStrArray[j]);
-               // transfer=transfer+su.text.only_specila[pass[j]]+" ";
             }
             if(pass[0]!=pass[1])
             {
@@ -200,7 +196,6 @@ public class MatrixGraph extends Graph{
             }
             for(int j=0;j< sourceStrArray.length;j++)
             {
-
                 if(sourceStrArray.length>2) {
                     if (j != 0 && j != sourceStrArray.length - 1) {
                         int a[] = su.Find_Station_Line(su.text.only_specila[pass[j]]);
